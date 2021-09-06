@@ -4,19 +4,22 @@ public class EmployeeWage
     public static final int IS_FULL_TIME = 1;
     public static final int IS_PART_TIME = 2;
     public static final int EMP_RATE_PER_HR = 20;
-    public static final int TOTAL_WORKING_DAYS = 20;
+    public static final int NUM_OF_WORKING_DAYS = 20;
+    public static final int MAX_WORKING_HRS = 100;
 
     public static void main(String args[])
     {
+
         //variables
-        int dailyWage = 0;
         int salary=0;
         int empHrs=0;
-        System.out.println("Welcome to Employee Computation Program on Master Branch");
+        int totalWorkingDays=0;
+        int totalEmpHrs=0;
+        System.out.println("Welcome to Employee Computation Program");
 
-        for ( int day=0;day<TOTAL_WORKING_DAYS;day++)
+        while (totalWorkingDays<=NUM_OF_WORKING_DAYS && totalEmpHrs<=MAX_WORKING_HRS)
         {
-
+            totalWorkingDays++;
             double empCheck = Math.floor(Math.random() * 10) % 3;
             switch ((int)empCheck) {
                 case IS_FULL_TIME:
@@ -29,9 +32,9 @@ public class EmployeeWage
                 default:
                     System.out.println("Employee is absent");
             }
-            dailyWage=(empHrs*EMP_RATE_PER_HR);
-            salary += dailyWage;
+            totalEmpHrs += empHrs;
         }
+        salary = (totalEmpHrs * EMP_RATE_PER_HR);
         System.out.println("Employee Wage for a month is "+salary);
     }
 }
